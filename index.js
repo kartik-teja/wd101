@@ -36,7 +36,7 @@ const displayEntries = () => {
         const emailCell = `<td class='border px-4 py-2'>${entry.email}</td>`;
         const passwordCell = `<td class='border px-4 py-2'>${entry.password}</td>`;
         const dobCell = `<td class='border px-4 py-2'>${entry.dob}</td>`;
-        const t_cCell = `<td class='border px-4 py-2'>${entry.t_c ? 'Yes' : 'No'}</td>`;
+        const t_cCell = `<td class='border px-4 py-2'>${entry.t_c ? 'true' : 'false'}</td>`;
 
         const row = `<tr>${nameCell} ${emailCell} ${passwordCell} ${dobCell} ${t_cCell}</tr>`;
         return row;
@@ -72,7 +72,7 @@ const saveUserForm = (event) => {
         dob: dob,
         t_c: t_c
     };
-    userEntries = retrieveEntries(event);
+    userEntries = retrieveEntries();
     userEntries.push(entry); 
 
     localStorage.setItem('userEntries', JSON.stringify(userEntries));
