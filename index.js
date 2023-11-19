@@ -46,8 +46,8 @@ const displayEntries = () => {
             <th class="px-4 py-2 border">Name</th>
             <th class="px-4 py-2 border">Email</th>
             <th class="px-4 py-2 border">Password</th>
-            <th class="px-4 py-2 border">Date of Birth</th>
-            <th class="px-4 py-2 border">Accept Terms and Conditions?</th>
+            <th class="px-4 py-2 border">Dob</th>
+            <th class="px-4 py-2 border">Accepted Terms?</th>
         </tr>
         ${tableEntries}
     </table>`;
