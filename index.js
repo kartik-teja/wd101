@@ -1,5 +1,3 @@
-let userEntries = [];
-
 const dobInput = document.getElementById("dob");
 dobInput.addEventListener("input", () => validate(dobInput.value));
 
@@ -43,13 +41,13 @@ const displayEntries = () => {
         return row;
     }).join("\n");
 
-    const table = `<table class="table-auto w-full border border-collapse border-gray-300"">
+    const table = `<table class="table-auto w-full borde border-collapse border-gray-300"">
         <tr>
             <th class="px-4 py-2 border">Name</th>
             <th class="px-4 py-2 border">Email</th>
             <th class="px-4 py-2 border">Password</th>
-            <th class="px-4 py-2 border">Dob</th>
-            <th class="px-4 py-2 border">Accepted Terms?</th>
+            <th class="px-4 py-2 border">Date of Birth</th>
+            <th class="px-4 py-2 border">Accept Terms and Conditions?</th>
         </tr>
         ${tableEntries}
     </table>`;
@@ -73,6 +71,7 @@ const saveUserForm = (event) => {
         dob: dob,
         t_c: t_c
     };
+    userEntries = retrieveEntries();
 
     userEntries.push(entry); // Add entry to userEntries array
 
