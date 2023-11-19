@@ -1,19 +1,21 @@
+let userEntries = [];
+
 const dobInput = document.getElementById("dob");
 dobInput.addEventListener("input", () => validate(dobInput.value));
 
-    function validate(dobValue) {
-            const today = new Date();
-            const dobDate = new Date(dobValue);
+function validate(dobValue) {
+    const today = new Date();
+    const dobDate = new Date(dobValue);
 
-            const age = today.getFullYear() - dobDate.getFullYear();
+    const age = today.getFullYear() - dobDate.getFullYear();
 
-            if (age < 18 || age > 55) {
-                dobInput.setCustomValidity("You must be between 18 and 55 years old to register.");
-                dobInput.reportValidity();
-            } else {
-                dobInput.setCustomValidity("");
-            }
-        }
+    if (age < 18 || age > 55) {
+        dobInput.setCustomValidity("You must be between 18 and 55 years old to register.");
+        dobInput.reportValidity();
+    } else {
+        dobInput.setCustomValidity("");
+    }
+}
 
 let userForm = document.getElementById('user-form');
 
@@ -64,7 +66,6 @@ const saveUserForm = (event) => {
     const dob = document.getElementById('dob').value;
     const t_c = document.getElementById('t&c').checked;
     
-
     const entry = {
         name: name,
         email: email,
@@ -72,7 +73,8 @@ const saveUserForm = (event) => {
         dob: dob,
         t_c: t_c
     };
-    userEntries.push(entry);
+
+    userEntries.push(entry); // Add entry to userEntries array
 
     localStorage.setItem('userEntries', JSON.stringify(userEntries));
     displayEntries();
