@@ -1,3 +1,4 @@
+
 const dobInput = document.getElementById("dob");
 dobInput.addEventListener("input", () => validate(dobInput.value));
 
@@ -17,7 +18,7 @@ function validate(dobValue) {
 
 let userForm = document.getElementById('user-form');
 
-const retrieveEntries = () => {
+let retrieveEntries = () => {
     let entries = localStorage.getItem('userEntries');
     if (entries) {
         entries = JSON.parse(entries);
@@ -71,9 +72,8 @@ const saveUserForm = (event) => {
         dob: dob,
         t_c: t_c
     };
-    userEntries = retrieveEntries();
-
-    userEntries.push(entry); // Add entry to userEntries array
+    userEntries = retrieveEntries(event);
+    userEntries.push(entry); 
 
     localStorage.setItem('userEntries', JSON.stringify(userEntries));
     displayEntries();
